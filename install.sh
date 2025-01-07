@@ -3,15 +3,9 @@
 # Exit on any error
 set -e
 
-# Update and install prerequisites
-echo "Updating package repositories and installing prerequisites..."
-apt-get update -y
-apt-get install -y build-essential libssl-dev wget tar
+# Use a precompiled CMake binary
+CMAKE_VERSION="3.27.0"  # Replace with your desired version
 
-# Define CMake version
-CMAKE_VERSION="3.27.0"  # Replace with the desired version
-
-# Download and install CMake
 echo "Downloading CMake version $CMAKE_VERSION..."
 wget https://github.com/Kitware/CMake/releases/download/v$CMAKE_VERSION/cmake-$CMAKE_VERSION-linux-x86_64.tar.gz
 
