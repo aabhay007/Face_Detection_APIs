@@ -3,6 +3,20 @@ services:
     name: face-detection-api
     env: python
     buildCommand: |
-      apt-get update && apt-get install -y cmake
+      # Install dependencies for downloading and extracting CMake
+      apt-get update && apt-get install -y wget tar
+
+      # Define CMake version
+      CMAKE_VERSION="3.27.0"  # Change to your desired version
+
+      # Download CMake
+      wget https://github.com/Kitware/CMake/releases/download/v$CMAKE_VERSION/cmake-$CMAKE_VERSION-linux-x86_64.tar.gz
+
+      # Extract and install CMake
+      tar -xvzf cmake-$CMAKE_VERSION-linux-x86_64.tar.gz
+      mv cmake-$CMAKE_VERSION-linux-x86_64 /opt/cmake
+      ln -s /opt/cmake/bin/* /usr/local/bin/
+
+      # Install Python dependencies
       pip install -r requirements.txt
     startCommand: gunicorn myproject.wsgi:application

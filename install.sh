@@ -7,7 +7,7 @@ set -e
 CMAKE_VERSION="3.27.0"  # Replace with your desired version
 
 echo "Downloading CMake version $CMAKE_VERSION..."
-wget https://github.com/Kitware/CMake/releases/download/v$CMAKE_VERSION/cmake-$CMAKE_VERSION-linux-x86_64.tar.gz
+
 
 echo "Extracting CMake..."
 tar -xvzf cmake-$CMAKE_VERSION-linux-x86_64.tar.gz
