@@ -5,8 +5,8 @@ set -e
 
 # Update and install prerequisites
 echo "Updating package repositories and installing prerequisites..."
-sudo apt-get update -y
-sudo apt-get install -y build-essential libssl-dev wget tar
+apt-get update -y
+apt-get install -y build-essential libssl-dev wget tar
 
 # Define CMake version
 CMAKE_VERSION="3.27.0"  # Replace with the desired version
@@ -19,8 +19,8 @@ echo "Extracting CMake..."
 tar -xvzf cmake-$CMAKE_VERSION-linux-x86_64.tar.gz
 
 echo "Installing CMake..."
-sudo mv cmake-$CMAKE_VERSION-linux-x86_64 /opt/cmake
-sudo ln -s /opt/cmake/bin/* /usr/local/bin/
+mv cmake-$CMAKE_VERSION-linux-x86_64 /opt/cmake
+ln -s /opt/cmake/bin/* /usr/local/bin/
 
 # Verify installation
 echo "Verifying CMake installation..."
